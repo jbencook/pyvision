@@ -4,7 +4,6 @@ from vision import *
 from vision.visualize import highlight_box
 from vision import features
 from vision.toymaker import *
-import Image
 import numpy
 import pylab
 from scipy.io import savemat as savematlab
@@ -13,21 +12,10 @@ import logging
 logging.basicConfig(level = logging.DEBUG)
 
 b = Box(498, 336, 498 + 131, 336 + 68, 200)
-#b = Box(128, 310, 128 + 91, 310 + 55, 200)
 b = Box(94, 256, 94 + 61, 257 + 40, 200)
 stop = 300
 
 frames = frameiterator("/scratch/virat/frames/VIRAT_S_040302_01_001240_001586")
-
-#frames = Geppetto((500,500))
-#frames.add(Rectangle((0,0), size = (250, 500), color = "black"))
-#path = Rectangle((200,200), color = "gray")
-#frames.add(path)
-##frames.add(Rectangle((400,300), color = "blue"))
-##frames.add(Rectangle((200,300), color = "blue"))
-#b = path[0]
-#stop = 0
-
 model  = PathModel(frames, [b], hogbin = 4, c = 1)
 
 wr = model.dim[0] / float(b.width)

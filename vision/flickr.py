@@ -2,7 +2,7 @@ import httplib
 import urllib
 import random
 import time
-import Image
+from PIL import Image
 import os
 from xml.etree import ElementTree
 import logging

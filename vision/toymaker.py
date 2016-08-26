@@ -1,5 +1,5 @@
-import Image
-from ImageDraw import Draw
+from PIL import Image
+from PIL.ImageDraw import Draw
 import random
 from vision.annotations import *
 

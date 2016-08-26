@@ -32,7 +32,7 @@ negatives = sum((list(vision.detectionreader.exemplarsvm(x)) for x in negatives)
 prior = ThreeD(video, patches, projections, sigma = 0.01)
 prior.build(detections)
 
-import pylab, numpy, Image
+import pylab, numpy
 for frame, nd in prior.scoreall():
     print frame
     pylab.subplot(221)
@@ -42,13 +42,6 @@ for frame, nd in prior.scoreall():
 
     pylab.subplot(222)
     pylab.imshow(numpy.asarray(video[frame]))
-
-#    box = prior.boxfit(frame)
-#    if box:
-#        pylab.subplot(223)
-#        im = visualize.highlight_box(box, video[frame])
-#        print box
-#        pylab.imshow(numpy.asarray(im))
 
     pylab.savefig("tmp2/{0}{1}.png".format(category, frame))
     pylab.clf()
